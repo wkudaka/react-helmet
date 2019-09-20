@@ -297,6 +297,12 @@ const handleClientStateChange = newState => {
     if (_helmetCallback) {
         cancelAnimationFrame(_helmetCallback);
     }
+    const {
+        title,
+        titleAttributes
+    } = newState;
+    
+    updateTitle(title, titleAttributes);
 
     if (newState.defer) {
         _helmetCallback = requestAnimationFrame(() => {
